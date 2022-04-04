@@ -1,0 +1,36 @@
+name: Lint
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  lint-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2                                       
+        with:                                                               
+          python-version: 3.9
+      
+      - uses: actions/cache@v2                                                                     
+        id: pip-cache
+        with:
+          path: |
+            ~/.cache/pip
+          # a key to serach our cache. 
+          key: pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: Install flake8
+        # if no cache hit in our pip cache
+        if: steps.pip-cache.outputs.cache-hit != 'true'
+        run: pip install flake8
+
+      - name: Run flake8
+        run: | # mutliline script. Place a pipe to preserve \n
+          echo 'Running flake'        
+          flake8 .

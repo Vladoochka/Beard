@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
                 ('id', models.IntegerField(primary_key=True, serialize=False)),
                 ('title', models.CharField(max_length=100)),
                 ('userId', models.ForeignKey(on_delete=django.db
-                                             .models.deletion.PROTECT
-                                             , related_name='albums',
+                                             .models.deletion.PROTECT,
+                                             related_name='albums',
                                              to='api.posts')),
             ],
         ),

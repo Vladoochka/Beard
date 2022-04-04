@@ -30,4 +30,3 @@ class TodosSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Albums
         fields = ['userId', 'id', 'title', 'completed']
-        

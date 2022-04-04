@@ -18,7 +18,10 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('email', models.CharField(max_length=30)),
                 ('body', models.CharField(max_length=500)),
-                ('postId', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='posts', to='api.posts')),
+                ('postId', models.ForeignKey(on_delete=django.db
+                                             .models.deletion.PROTECT,
+                                             related_name='posts',
+                                             to='api.posts')),
             ],
         ),
     ]

@@ -5,6 +5,3 @@ admin.site.register(Comments)
 admin.site.register(Albums)
 admin.site.register(Todos)
 admin.site.register(Photos)
-
-
-
